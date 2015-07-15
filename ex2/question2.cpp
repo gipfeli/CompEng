@@ -19,7 +19,7 @@
 using namespace std;
 
 void initData(vector<double>& x, vector<double>& y, vector<double>& z)
-{
+{	
     //  Check if the sizes of the vectors are the same
     // if not - write an error message
     // and abort the program
@@ -103,14 +103,16 @@ int main()
     Plane p;
     cout << fixed << setprecision(5) << setw(9);
     
-    for (int i = 0; i < z.size(); i++)
+    for (int i = 0; i < z.size(); i++) {
         zNoise[i] = z[i] + (0.2*drand48() - 0.1);
+    }
     p = lsqplane(x, y, zNoise);
     cout << "Fitted plane with N = " << N << " and noise of +-0.1:" << endl;
     cout << "   " << p.a << " + " << p.b << " * x + " << p.c << " * y" << endl << endl;
     
-    for (int i = 0; i < z.size(); i++)
+    for (int i = 0; i < z.size(); i++){
         zNoise[i] = z[i] + 10*(0.2*drand48() - 0.1);
+    }
     p = lsqplane(x, y, zNoise);
     cout << "Fitted plane with N = " << N << " and noise of +-1.0:" << endl;
     cout << "   " << p.a << " + " << p.b << " * x + " << p.c << " * y" << endl << endl;
@@ -139,8 +141,8 @@ int main()
     for (int i = 0; i < z.size(); i++)
         zNoise[i] = z[i] + 10*(0.2*drand48() - 0.1);
     p = lsqplane(x, y, zNoise);
-    cout << "Fitted plane with N = " << N << " and noise of +-1.0:" << endl;
-    cout << "   " << p.a << " + " << p.b << " * x + " << p.c << " * y" << endl << endl;
+/*    cout << "Fitted plane with N = " << N << " and noise of +-1.0:" << endl;
+    cout << "   " << p.a << " + " << p.b << " * x + " << p.c << " * y" << endl << endl;*/
 
     
     // Bingo!

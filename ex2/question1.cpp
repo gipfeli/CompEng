@@ -66,7 +66,7 @@ struct Line
     Line(double a, double b) : a(a), b(b) {};
     
     double eval(double x)
-    {
+    {   
         return a + b*x;
     }
 };
