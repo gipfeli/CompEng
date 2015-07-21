@@ -74,6 +74,7 @@ void interpolate_natural_cubic_spline(
         diag[i] = 2*(dx[0]+dx[1]);
         upper[i] = dx[1];
         rhs[i] = 6*( (y[i+1]-y[i])/dx[1] - (y[i]-y[i-1])/dx[0] );
+        // cout << i << " " << lower[i] << " " << diag[i] << " " << upper[i] << endl;
     }
 
     if(r_clamped == 0)
@@ -116,6 +117,11 @@ void interpolate_natural_cubic_spline(
             ak[1] = (y[k]-y[k-1])/dxk - (d[k]-d[k-1])*dxk/6.0;
             ak[2] = d[k]/(6.0*dxk);
             ak[3] = d[k-1]/(6.0*dxk);
+            /*cout << "ak[0] = " << y[k-1] << " - 1/6 * " << d[k-1] << " * " << dxk << "^2 = " << ak[0] << endl;
+            cout << x[k-1] << " " << x[k] << " " << x[k+1] << endl;
+            cout << y[k-1] << " " << y[k] << " " << y[k+1] << endl;
+            cout << endl;*/
+            // cout << ak[0] << " " << ak[1] << " " << ak[2] << " " << ak[3] << endl;
         }
 
         if(k == 0)
@@ -153,7 +159,7 @@ int main(int argc, char * argv[])
 
     double xi, yi;
     while(infile >> xi >> yi)
-    {
+    {   
         x.push_back(xi);
         y.push_back(yi);
     }

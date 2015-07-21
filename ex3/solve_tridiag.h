@@ -4,6 +4,7 @@
 
 #include <cmath>
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
@@ -48,7 +49,7 @@ int solve_thomas(
     solution[N-1] = d[N-1];
     for(int i=N-2; i>=0; --i)
         solution[i] = d[i]-c[i]*solution[i+1];
-
+        // cout << solution [i] << endl;}
     return 0;
 }
 

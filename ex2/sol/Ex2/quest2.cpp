@@ -37,10 +37,10 @@ int main(void){
 	for (int iv = 0; iv < size; iv++)
 	 {
 	 	// note: we assume data on a 10x10 grid (iv is in [0,99])
-        int i = iv % 10;  // i in [0,9]
-        int j = iv / 10;  // j in [0,9]
-        x[iv] = drand48();
-        y[iv] = drand48();
+        //int i = iv % 10;  // i in [0,9]
+        //int j = iv / 10;  // j in [0,9]
+        x[iv] = drand48(); //x[iv] = i*0.1;
+        y[iv] = drand48(); //y[iv] = j*0.1;
         z[iv] = x[iv] + y[iv];
         zNoise[iv] = z[iv] + n*(0.2*drand48() - 0.1);
         fout << x[iv] << " " << y[iv] << " " << z[iv] << endl;

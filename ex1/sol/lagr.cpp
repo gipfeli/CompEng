@@ -37,3 +37,6 @@ int main (void){
 	delete [] y;
 	return 0;
 }
+
+    Status API Training Shop Blog About Help 
+
